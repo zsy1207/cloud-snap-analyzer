@@ -1,0 +1,257 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f8f9fa;
+    --text-color: #2c3e50;
+    --border-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --card-bg: #ffffff;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 语言切换按钮 */
+.lang-switch-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 5px;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.lang-btn {
+    border: none;
+    background: none;
+    padding: 6px 12px;
+    border-radius: 15px;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.lang-btn:hover {
+    background: rgba(74, 144, 226, 0.1);
+}
+
+.lang-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* 主容器 */
+.container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* 卡片样式 */
+.main-card {
+    background-color: var(--card-bg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 20px 20px 0 0;
+}
+
+.card-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.card-header p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.api-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+}
+
+.api-status i {
+    margin-right: 0.5rem;
+}
+
+.api-status.success {
+    color: #28a745;
+}
+
+.api-status.error {
+    color: #dc3545;
+}
+
+.api-status.loading {
+    color: #007bff;
+}
+
+/* 其他现有样式保持不变 */
+/* 模型选择按钮 */
+.model-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.model-buttons .btn {
+    min-width: 120px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* 上传区域 */
+.upload-container {
+    border: 2px dashed var(--border-color);
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 500px;
+    transition: all 0.3s ease;
+    background: linear-gradient(to bottom right, rgba(74, 144, 226, 0.05), rgba(74, 144, 226, 0.1));
+}
+
+.upload-area {
+    padding: 2rem;
+    text-align: center;
+}
+
+.upload-area i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.upload-area p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* 分析结果区域 */
+.markdown-body {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.markdown-body h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.markdown-body h2:first-child {
+    margin-top: 0;
+}
+
+.markdown-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* 按钮样式 */
+.analyze-btn {
+    padding: 0.6rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* 预览区域 */
+.preview-container {
+    max-width: 500px;
+    margin: 1rem auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    background: white;
+    padding: 0.5rem;
+}
+
+#previewImage {
+    max-height: 350px;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* 加载动画 */
+.loading-animation {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .model-buttons {
+        flex-direction: column;
+    }
+    
+    .model-buttons .btn {
+        width: 100%;
+    }
+    
+    .upload-area {
+        padding: 1.5rem;
+    }
+    
+    .upload-area i {
+        font-size: 2rem;
+    }
+    
+    #previewImage {
+        max-height: 250px;
+    }
+    
+    .markdown-body {
+        padding: 1rem;
+    }
+    
+    .markdown-body h2 {
+        font-size: 1.1rem;
+    }
+}
